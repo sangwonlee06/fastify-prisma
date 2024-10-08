@@ -1,0 +1,26 @@
+{
+  "name": "fastify-prisma",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:build": "tsc -w --project tsconfig.json",
+    "dev": "nodemon --watch 'src/' --exec tsx src/main.ts --verbose",
+    "build": "tsc",
+    "prod": "npm run build && node dist/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "fastify": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}
