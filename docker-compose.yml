@@ -1,0 +1,13 @@
+version: "3"
+services:
+  fastify_db:
+    container_name: fastify_db
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fastify_db
