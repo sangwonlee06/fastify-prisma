@@ -14,18 +14,50 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String  @db.VarChar(255)
-  content   String
-  published Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  authorId  Int?
+model User {
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  password String
+  token    Token[]
+  posts    Post[]
+  comments Comment[]
+  likes    Like[]
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+model Token {
+  id           Int    @id @default(autoincrement())
+  userId       Int
+  user         User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refreshToken String
+}
+
+model Post {
+  id      Int    @id @default(autoincrement())
+  content String
+
+  likeCount    Int       @default(0)
+  likes        Like[]
+  commentCount Int       @default(0)
+  comments     Comment[]
+  createdAt    DateTime  @default(now())
+  userId       Int
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Like {
+  id     Int  @id @default(autoincrement())
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId Int
+  post   Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String
+  createdAt DateTime @default(now())
+  userId    Int
+  User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId    Int
+  Post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
 }
