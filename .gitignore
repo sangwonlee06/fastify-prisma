@@ -1,0 +1,51 @@
+# ── Node / TypeScript ────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# TypeScript build output
+dist/
+build/
+*.js
+*.js.map
+*.d.ts
+
+# Prisma generated client & local DB file
+.prisma/
+prisma/dev.db
+
+# Coverage
+coverage/
+.nyc_output/
+
+# ── Environment ───────────────────────────────────────────────────────────────
+.env
+.env.*.local
+
+# ── JetBrains WebStorm ───────────────────────────────────────────────────────
+.idea/
+
+# ── Docker / Docker Compose ──────────────────────────────────────────────────
+# ignore your machine-specific Compose overrides
+docker-compose.override.yml
+
+# if you mount a host dir for Postgres data, ignore it here (adjust name as needed)
+postgres-data/
+pgdata/
+# or, if you call it something else, add that folder too
+
+# ── OS & Editors ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+/generated/prisma
+
+/src/generated/prisma
+
+/src/generated/prisma
+
+/src/generated/prisma
+
+/src/generated/prisma

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es2023",
+    "module": "es2022",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": false,
+
+    "strict": true,
+    "noImplicitAny": true,
+    "useUnknownInCatchVariables": false,
+
+    "inlineSourceMap": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
+}
